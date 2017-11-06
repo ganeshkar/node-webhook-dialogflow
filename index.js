@@ -48,7 +48,7 @@ function getProductDeatils(req, res) {
   
   
   app.post('/webhook', function (req, res) {
-    console.log(req.body);
+    console.log(JSON.stringify(req.body));
     getProductDeatils(req, res);
   })
   
