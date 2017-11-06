@@ -40,23 +40,21 @@ function handleIntent(req, res) {
       }
     
     function carousel (assistant) {
-  assistant.askWithCarousel('Alright! Here are a few products you can check',
-    // Build a carousel
-    assistant.buildCarousel()
-    // Add the first item to the carousel
-    .addItems(assistant.buildOptionItem('PROD_LEVEL1',
-      ['dream_prod', 'product of mars', 'test prod'])
-      .setTitle('Product level - 1')
-      .setDescription('This about product level 1')
-      .addButton('Read more', 'https://example.google.com/mathandprimes')
-      .setImage('http://i.ndtvimg.com/progold/304342_thumb.jpg', 'Product of Mars'))
-    // Add the second item to the carousel
-    .addItems(assistant.buildOptionItem('PROD_LEVEL7',
-      ['product of universe', 'old id gold', 'we care for you'])
-      .setTitle('Product level - 7')
-      .setDescription('This about product level 7')
-      .addButton('Read more', 'https://example.google.com/mathandprimes')
-      .setImage('http://www.medimanage.com/health-insurance-experts-blog/image.axd?picture=2011%2f10%2fNew-Health-Insurance-Product.jpg', 'Product of Universe')
+        assistant.askWithCarousel('Alright! Here are a few products you can check',
+        // Build a carousel
+        assistant.buildCarousel()
+        // Add the first item to the carousel
+        .addItems(assistant.buildOptionItem('PROD_LEVEL1',
+             ['dream_prod', 'product of mars', 'test prod'])
+             .setTitle('Product level - 1')
+             .addButton('Read more', 'https://example.google.com/mathandprimes')
+             .setImage('http://i.ndtvimg.com/progold/304342_thumb.jpg', 'Product of Mars'))
+        // Add the second item to the carousel
+        .addItems(assistant.buildOptionItem('PROD_LEVEL7',
+            ['product of universe', 'old id gold', 'we care for you'])
+            .setTitle('Product level - 7')
+            .addButton('Read more', 'https://example.google.com/mathandprimes')
+            .setImage('http://www.medimanage.com/health-insurance-experts-blog/image.axd?picture=2011%2f10%2fNew-Health-Insurance-Product.jpg', 'Product of Universe')
     )
   );
 }
