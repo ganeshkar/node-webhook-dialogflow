@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request')
-const ActionsSdkApp = require('actions-on-google').ActionsSdkApp;
+const DialogflowApp = require('actions-on-google').DialogflowApp;
 
 const app = express();
 
@@ -17,17 +17,17 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 
-function getProductDeatils(req, res) {
-    const app = new ActionsSdkApp({request: req, response: res});
+function handleIntent(req, res) {
+    const assistant = new DialogflowApp({request: req, response: res});
 
     const PRODUCT_DETAILS_INTENT = 'getProductDeatils';  
     const AGE_ARGUMENT = 'age'; 
 
     function basicCard () {
-        app.ask(app.buildRichResponse()
+        assistant.ask(assistant.buildRichResponse()
           // Create a basic card and add it to the rich response
           .addSimpleResponse('Math and prime numbers it is!')
-          .addBasicCard(app.buildBasicCard('42 is an even composite number. It' +
+          .addBasicCard(assistant.buildBasicCard('42 is an even composite number. It' +
             'is composed of three distinct prime numbers multiplied together. It' +
             'has a total of eight divisors. 42 is an abundant number, because the' +
             'sum of its proper divisors 54 is greater than itself. To count from' +
@@ -41,15 +41,15 @@ function getProductDeatils(req, res) {
   
     let actionMap = new Map();
     actionMap.set(PRODUCT_DETAILS_INTENT, basicCard);
-    actionMap.set(app.StandardIntents.MAIN, basicCard);
-    actionMap.set(app.StandardIntents.TEXT, basicCard);
-    app.handleRequest(actionMap);
+    actionMap.set(assistant.StandardIntents.MAIN, basicCard);
+    actionMap.set(assistant.StandardIntents.TEXT, basicCard);
+    assistant.handleRequest(actionMap);
   }
   
   
   app.post('/webhook', function (req, res) {
     console.log(JSON.stringify(req.body));
-    getProductDeatils(req, res);
+    handleIntent(req, res);
   })
   
 
