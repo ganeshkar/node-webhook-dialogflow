@@ -47,13 +47,13 @@ function handleIntent(req, res) {
         .addItems(assistant.buildOptionItem('PROD_LEVEL1',
              ['dream_prod', 'product of mars', 'test prod'])
              .setTitle('Product level - 1')
-             .addButton('Read more', 'https://example.google.com/mathandprimes')
+             .addDescription('This is a product of mars')
              .setImage('http://i.ndtvimg.com/progold/304342_thumb.jpg', 'Product of Mars'))
         // Add the second item to the carousel
         .addItems(assistant.buildOptionItem('PROD_LEVEL7',
             ['product of universe', 'old id gold', 'we care for you'])
             .setTitle('Product level - 7')
-            .addButton('Read more', 'https://example.google.com/mathandprimes')
+            .addDescription('This product is very very popular...')
             .setImage('http://www.medimanage.com/health-insurance-experts-blog/image.axd?picture=2011%2f10%2fNew-Health-Insurance-Product.jpg', 'Product of Universe')
     )
   );
