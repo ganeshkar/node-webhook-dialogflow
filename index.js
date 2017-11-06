@@ -70,7 +70,7 @@ function handleIntent(req, res) {
   
     let actionMap = new Map();
     actionMap.set(PRODUCT_DETAILS_INTENT, carousel);
-    actionMap.set(app.StandardIntents.OPTION, optionIntent);
+    actionMap.set(assistant.StandardIntents.OPTION, optionIntent);
     //actionMap.set(assistant.StandardIntents.MAIN, basicCard);
     //actionMap.set(assistant.StandardIntents.TEXT, basicCard);
     assistant.handleRequest(actionMap);
