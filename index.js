@@ -41,8 +41,8 @@ function handleIntent(req, res) {
   
     let actionMap = new Map();
     actionMap.set(PRODUCT_DETAILS_INTENT, basicCard);
-    actionMap.set(assistant.StandardIntents.MAIN, basicCard);
-    actionMap.set(assistant.StandardIntents.TEXT, basicCard);
+    //actionMap.set(assistant.StandardIntents.MAIN, basicCard);
+    //actionMap.set(assistant.StandardIntents.TEXT, basicCard);
     assistant.handleRequest(actionMap);
   }
   
