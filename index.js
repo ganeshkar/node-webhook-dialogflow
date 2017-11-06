@@ -48,13 +48,15 @@ function handleIntent(req, res) {
       ['dream_prod', 'product of mars', 'test prod'])
       .setTitle('Product level - 1')
       .setDescription('This about product level 1')
-      .setImage('https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwi4hYaiv6nXAhWJLY8KHdqKC2YQjRwIBw&url=http%3A%2F%2Fprofit.ndtv.com%2Ftopic%2Finsurance-product&psig=AOvVaw2H2cAp3QTJ1NfmH0TqGwv-&ust=1510042082200443', 'Product of Mars'))
+      .addButton('Read more', 'https://example.google.com/mathandprimes')
+      .setImage('http://i.ndtvimg.com/progold/304342_thumb.jpg', 'Product of Mars'))
     // Add the second item to the carousel
     .addItems(assistant.buildOptionItem('PROD_LEVEL7',
       ['product of universe', 'old id gold', 'we care for you'])
       .setTitle('Product level - 7')
       .setDescription('This about product level 7')
-      .setImage('https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiInZS8v6nXAhVHP48KHaXGCpsQjRwIBw&url=http%3A%2F%2Fprofit.ndtv.com%2Ftopic%2Finsurance-product&psig=AOvVaw2H2cAp3QTJ1NfmH0TqGwv-&ust=1510042082200443', 'Product of Universe')
+      .addButton('Read more', 'https://example.google.com/mathandprimes')
+      .setImage('http://www.medimanage.com/health-insurance-experts-blog/image.axd?picture=2011%2f10%2fNew-Health-Insurance-Product.jpg', 'Product of Universe')
     )
   );
 }
