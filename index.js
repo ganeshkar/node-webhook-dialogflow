@@ -58,9 +58,19 @@ function handleIntent(req, res) {
     )
   );
 }
+    
+    
+    function optionIntent (assistant) {
+  if (assistant.getSelectedOption() === 'PROD_LEVEL1') {
+    assistant.tell('Product level - 1 is a great choice!');
+  } else {
+    assistant.tell('Product level - 7 is a great choice!');
+  }
+}
   
     let actionMap = new Map();
     actionMap.set(PRODUCT_DETAILS_INTENT, carousel);
+    actionMap.set(app.StandardIntents.OPTION, optionIntent);
     //actionMap.set(assistant.StandardIntents.MAIN, basicCard);
     //actionMap.set(assistant.StandardIntents.TEXT, basicCard);
     assistant.handleRequest(actionMap);
