@@ -38,9 +38,29 @@ function handleIntent(req, res) {
           )
         );
       }
+    
+    function carousel (assistant) {
+  assistant.askWithCarousel('Alright! Here are a few products you can check',
+    // Build a carousel
+    assistant.buildCarousel()
+    // Add the first item to the carousel
+    .addItems(assistant.buildOptionItem('PROD_LEVEL1',
+      ['dream_prod', 'product of mars', 'test prod'])
+      .setTitle('Product level - 1')
+      .setDescription('This about product level 1')
+      .setImage('https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwi4hYaiv6nXAhWJLY8KHdqKC2YQjRwIBw&url=http%3A%2F%2Fprofit.ndtv.com%2Ftopic%2Finsurance-product&psig=AOvVaw2H2cAp3QTJ1NfmH0TqGwv-&ust=1510042082200443', 'Product of Mars'))
+    // Add the second item to the carousel
+    .addItems(assistant.buildOptionItem('PROD_LEVEL7',
+      ['product of universe', 'old id gold', 'we care for you'])
+      .setTitle('Product level - 7')
+      .setDescription('This about product level 7')
+      .setImage('https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiInZS8v6nXAhVHP48KHaXGCpsQjRwIBw&url=http%3A%2F%2Fprofit.ndtv.com%2Ftopic%2Finsurance-product&psig=AOvVaw2H2cAp3QTJ1NfmH0TqGwv-&ust=1510042082200443', 'Product of Universe')
+    )
+  );
+}
   
     let actionMap = new Map();
-    actionMap.set(PRODUCT_DETAILS_INTENT, basicCard);
+    actionMap.set(PRODUCT_DETAILS_INTENT, carousel);
     //actionMap.set(assistant.StandardIntents.MAIN, basicCard);
     //actionMap.set(assistant.StandardIntents.TEXT, basicCard);
     assistant.handleRequest(actionMap);
