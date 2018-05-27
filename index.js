@@ -24,7 +24,7 @@ function handleIntent(req, res) {
     console.log("Last name is "+req.body.queryResult.parameters["last-name"]);
     console.log("First name is "+req.body.queryResult.parameters["given-name"]);
     
-    req.post(
+    request.post(
         EXT_API_URL,{ 
         customerDetails: 
             { 
@@ -33,8 +33,8 @@ function handleIntent(req, res) {
                 'lastName':req.body.queryResult.parameters["last-name"]
              } 
         },
-        function (error, res, body) {
-            if (!error && res.statusCode == 200) {
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
                 console.log(body)
             }
         }
