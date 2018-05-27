@@ -11,7 +11,7 @@ const EXT_API_URL = "https://gk-testapi.herokuapp.com/api/products";
 
 
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
 
 app.use(bodyParser.json());
