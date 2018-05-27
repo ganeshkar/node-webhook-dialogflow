@@ -26,7 +26,7 @@ function handleIntent(req, res) {
     
     request.post(
         EXT_API_URL,{ 
-        customerDetails: 
+        'customerDetails': 
             { 
                 'customerNo': req.body.queryResult.parameters["CustomerNo"], 
                 'firstName': req.body.queryResult.parameters["given-name"],
