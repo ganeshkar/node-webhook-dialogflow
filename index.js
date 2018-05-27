@@ -23,8 +23,22 @@ function handleIntent(req, res) {
     console.log("Customer no. is "+req.body.queryResult.parameters["CustomerNo"]);
     console.log("Last name is "+req.body.queryResult.parameters["last-name"]);
     console.log("First name is "+req.body.queryResult.parameters["given-name"]);
-    //Persist this in some database
-    //Send out an email that new feedback has come in
+    
+    req.post(
+        EXT_API_URL,{ 
+        customerDetails: 
+            { 
+                'customerNo': req.body.queryResult.parameters["CustomerNo"], 
+                'firstName': req.body.queryResult.parameters["given-name"],
+                'lastName':req.body.queryResult.parameters["last-name"]
+             } 
+        },
+        function (error, res, body) {
+            if (!error && res.statusCode == 200) {
+                console.log(body)
+            }
+        }
+    );
     res.status(200).json({
           speech: "Thank you. Please check the details from Application screen",
           displayText: "Thank you. Please check the details from Application screen",
