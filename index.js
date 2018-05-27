@@ -20,9 +20,9 @@ app.use(bodyParser.json());
 function handleIntent(req, res) {
 
     console.log(req.body);
-    console.log(req.body.result.parameters["CustomerNo"]);
-    console.log(req.body.result.parameters["last-name"]);
-    console.log(req.body.result.parameters["given-name"]);
+    console.log("Customer no. is "+req.body.queryResult.parameters["CustomerNo"]);
+    console.log("Last name is "+req.body.queryResult.parameters["last-name"]);
+    console.log("First name is "+req.body.queryResult.parameters["given-name"]);
     //Persist this in some database
     //Send out an email that new feedback has come in
     res.status(200).json({
@@ -33,7 +33,7 @@ function handleIntent(req, res) {
   
   
   app.post('/webhook', function (req, res) {
-    console.log(JSON.stringify(req.body));
+    //console.log(JSON.stringify(req.body));
     handleIntent(req, res);
   })
   
